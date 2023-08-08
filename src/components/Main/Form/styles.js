@@ -2,11 +2,14 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(() => ({
   radioGroup: {
-    display: 'flex',
-    justifyContent: 'center',
-    marginBottom: '-10px',
+    display: "flex",
+    justifyContent: "center",
+    marginBottom: "-10px",
   },
   button: {
-    marginTop: '20px',
+    marginTop: "20px",
+    padding: "12px",
+    borderRadius: "12px",
+    fontWeight: "600",
   },
 }));
