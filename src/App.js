@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Box, Button, Grid } from "@material-ui/core";
+import { Box, Button, Grid, Typography } from "@material-ui/core";
 
 import { SpeechState, useSpeechContext } from "@speechly/react-client";
 import {
@@ -71,17 +71,26 @@ const App = () => {
           xs={12}
           justifyContent="center"
           alignItems="center"
-          className={classes.main}
+          className={classes.topBar}
         >
           <Box
             sx={{
-              maxWidth: "lg",
-              marginX: "auto",
+              width: "100%",
+              display: "flex",
+              justifyContent: "end",
+              alignItems: "center",
             }}
           >
+            {user && (
+              <Typography className={classes.name}>
+                Hi, {user.displayName}
+              </Typography>
+            )}
             <Button
-              fullWidth
+              // fullWidth
               variant="contained"
+              color="primary"
+              className={classes.button}
               onClick={!user ? handleGoogleLogin : () => signOut(auth)}
             >
               {!user ? "Sign in to Google" : "Logout"}
@@ -100,9 +109,9 @@ const App = () => {
         <Grid item xs={12} sm={4} className={classes.last}>
           <Details title="Expense" />
         </Grid>
-        <PushToTalkButtonContainer>
+        {/* <PushToTalkButtonContainer>
           <PushToTalkButton />
-        </PushToTalkButtonContainer>
+        </PushToTalkButtonContainer> */}
       </Grid>
     </div>
   );
