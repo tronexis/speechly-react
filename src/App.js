@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Box, Button, Grid, Typography } from "@material-ui/core";
+import { Box, Button, Grid, IconButton, Typography } from "@material-ui/core";
 
 import { SpeechState, useSpeechContext } from "@speechly/react-client";
 import {
@@ -18,10 +18,11 @@ import {
 import { auth, db } from "./config/firebase";
 import { useUser } from "./context/userContext";
 import { child, onValue, ref, set } from "firebase/database";
+import { Mic, Stop } from "@material-ui/icons";
 
 const App = () => {
   const classes = useStyles();
-  const { speechState } = useSpeechContext();
+  const { listening, attachMicrophone, start, stop } = useSpeechContext();
   const { user, setUser } = useUser();
   const main = useRef(null);
 
@@ -32,11 +33,20 @@ const App = () => {
     await signInWithPopup(auth, provider);
   };
 
+  const handleClick = async () => {
+    if (listening) {
+      await stop();
+    } else {
+      await attachMicrophone();
+      await start();
+    }
+  };
+
   useEffect(() => {
-    if (speechState === SpeechState.Recording) {
+    if (listening) {
       executeScroll();
     }
-  }, [speechState]);
+  }, [listening]);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -112,6 +122,16 @@ const App = () => {
         {/* <PushToTalkButtonContainer>
           <PushToTalkButton />
         </PushToTalkButtonContainer> */}
+        {/* < */}
+        <IconButton
+          onClick={handleClick}
+          color="primary"
+          size="large"
+          shape="round"
+          className={classes.micButton}
+        >
+          {listening ? <Stop fontSize="large" /> : <Mic fontSize="large" />}
+        </IconButton>
       </Grid>
     </div>
   );

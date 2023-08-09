@@ -39,4 +39,16 @@ export default makeStyles((theme) => ({
   name: {
     marginRight: "10px",
   },
+  micButton: {
+    position: "fixed",
+    bottom: 30,
+    right: "100",
+    background: "white",
+    fontSize: 20,
+    border: "2px solid #303f9f",
+    "&:hover": {
+      background: "#303f9f",
+      color: "white",
+    },
+  },
 }));
