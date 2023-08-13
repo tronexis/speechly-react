@@ -1,25 +1,25 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
-  desktop: {
-    [theme.breakpoints.up("sm")]: {
+  mobile: {
+    [theme.breakpoints.up("lg")]: {
       display: "none",
     },
   },
-  mobile: {
-    [theme.breakpoints.down("sm")]: {
+  desktop: {
+    [theme.breakpoints.down("md")]: {
       display: "none",
     },
   },
   main: {
     [theme.breakpoints.up("sm")]: {
-      paddingBottom: "5%",
+      paddingBottom: "4%",
     },
   },
   last: {
     [theme.breakpoints.down("sm")]: {
       marginBottom: theme.spacing(3),
-      paddingBottom: "200px",
+      paddingBottom: "100px",
     },
   },
   grid: {
@@ -39,9 +39,12 @@ export default makeStyles((theme) => ({
   name: {
     marginRight: "10px",
   },
+  footerText: {
+    fontSize: "14px",
+  },
   micButton: {
     position: "fixed",
-    bottom: 30,
+    bottom: 40,
     right: "100",
     background: "white",
     fontSize: 20,

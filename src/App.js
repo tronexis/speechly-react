@@ -103,22 +103,39 @@ const App = () => {
             </Button>
           </Box>
         </Grid>
-        <Grid item xs={12} sm={4} className={classes.mobile}>
+        <Grid item xs={12} lg={4} className={classes.desktop}>
           <Details title="Income" />
         </Grid>
-        <Grid ref={main} item xs={12} sm={3} className={classes.main}>
+        <Grid ref={main} item xs={12} md={6} lg={3} className={classes.main}>
           <Main />
         </Grid>
-        <Grid item xs={12} sm={4} className={classes.desktop}>
+        <Grid item xs={12} md={6} lg={4} className={classes.mobile}>
           <Details title="Income" />
         </Grid>
-        <Grid item xs={12} sm={4} className={classes.last}>
+        <Grid item xs={12} md={6} lg={4} className={classes.last}>
           <Details title="Expense" />
         </Grid>
         {/* <PushToTalkButtonContainer>
           <PushToTalkButton />
         </PushToTalkButtonContainer> */}
         {/* < */}
+        <Grid item xs={12} justifyContent="center" alignItems="center">
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              paddingBottom: "16px",
+              textAlign: "center",
+            }}
+          >
+            <Typography className={classes.footerText}>
+              Copyright © {new Date().getFullYear()}. Made with ❤️ by Uzair
+              Sheikh
+            </Typography>
+          </Box>
+        </Grid>
         <IconButton
           onClick={handleClick}
           color="primary"
