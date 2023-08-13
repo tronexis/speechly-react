@@ -1,11 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 import { Box, Button, Grid, IconButton, Typography } from "@material-ui/core";
 
-import { SpeechState, useSpeechContext } from "@speechly/react-client";
-import {
-  PushToTalkButton,
-  PushToTalkButtonContainer,
-} from "@speechly/react-ui";
+import { useSpeechContext } from "@speechly/react-client";
 
 import { Details, Main } from "./components";
 import useStyles from "./styles";
@@ -17,7 +13,7 @@ import {
 } from "firebase/auth";
 import { auth, db } from "./config/firebase";
 import { useUser } from "./context/userContext";
-import { child, onValue, ref, set } from "firebase/database";
+import { onValue, ref, set } from "firebase/database";
 import { Mic, Stop } from "@material-ui/icons";
 
 const App = () => {
